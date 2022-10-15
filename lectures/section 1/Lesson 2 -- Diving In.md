@@ -41,6 +41,7 @@ Traditionally, a CS101 University course will start you on your programming jour
 Take a look at this program, what do you see? I know you don't know how to code yet, but I'm sure you can spot some obvious things. For example, you can see the text `"Enter 1st number: "`, which was the first thing you saw when you ran the program. Poke it! What can you change it to? Can you change it to `Enter 1st awesome number: `? Can you put any text you want in there? Do you even need it at all? 
 
 These are all great questions, and they're all questions you can answer by... poking at it! You're going to get some error messages, but don't be scared. There is literally nothing you can do that will harm your computer, yourself, your credit score, or your loved ones. If you get an error, do the following:
+
 1. Read the error message. It will probably be mostly gibberish to you but try to pull out relevant information. Does it tell you something about where the problem happened? Did it tell you something that looked like the name of the error?
 2. Undo your change -- `Ctrl+Z` on most computers, `Cmd+Z` on Macs. If worse comes to worst, just reload the page, or copy and paste the code I provided above. Nothing is permanent.
 
@@ -75,7 +76,7 @@ a = int(input('Enter 1st number: '))
 b = int(input('Enter 2nd number: '))
 ```
 
-You'll notice that although the text in green was outputted to your screen, line 10 has a little more going on. In particular. There are some things in curly braces, and there's that `f` *outside* the opening quotation mark. 
+You'll notice that although the text in green was outputted to your screen, line 10 has a little more going on. In particular, there are some things in curly braces, and there's that `f` *outside* the opening quotation mark. 
 
 That `f` looks dumb, delete it. Now run your program again and see the result. 
 
@@ -86,7 +87,7 @@ You may have noticed that the two lines that prompt you for input look very simi
 a = int(input('Enter 1st number: '))
 b = int(input('Enter 2nd number: '))
 ```
-If you've played around with changing the text that's displayed for the prompt, you may have noticed that it bears no relation to what the code does. But does the order of lines matter? Can you have `b =` before `a =`?
+If you've played around with changing the text that's displayed for the prompt, you may have noticed that it bears no relation to how the rest of the code works. But does the order of lines matter? Can you have `b =` before `a =`?
 
 ### Change the Name of Variables
 `a` and `b` are examples of what we call *variables*. If you hated math in school, this might trigger some flashbacks:
@@ -163,7 +164,7 @@ We saw earlier that these `a` and `b`s didn't relate to the other `a` and `b`s i
 Try something big: prompt the user for a third number, and calculate `a + b + c`. I know you don't know how any of this really works, and that's okay. Just activate the pattern-matching part of your brain, do some copy and pasting, and try to make it work. Take it slow and make one change at a time, and carefully read the error message.
 
 # The Part of the Lesson Where I Actually Give You Answers
-Congratulations! You survived your first brush with computer programming! But you still have many unanswered questions, and I'm going to answer some of them. If these explanations seem incomplete or too rushed for your tastes, don't worry -- in subsequent chapters of this course, we'll be slowing down and looking at one concept at a time.
+Congratulations! You survived your first brush with computer programming! But you still have many unanswered questions, and I'm going to answer *some* of them. If these explanations seem incomplete or too rushed for your tastes, don't worry -- in subsequent chapters of this course, we'll be slowing down and looking at one concept at a time. This overview is just here to whet your appetite and make sure that you don't have any major misunderstandings about what you've seen so far. 
 
 ---------------
 
@@ -199,7 +200,7 @@ def sum(a, b):
 
 This is what we call a `function`. If you have some math or formal logic background, you might recognize the concept. For the rest of you, here's a quick explanation to tide us over until the full lesson. 
 
-Functions are reusable peices of code. Functions are also like Mad Lib stories, because they let us fill in the blanks -- we can tell the same basic story, but the small details are different each time. 
+Functions are reusable pieces of code. Functions are also like [Mad Libs](https://en.wikipedia.org/wiki/Mad_Libs) stories, because they let us fill in the blanks -- we can tell the same basic story, but the small details are different each time. 
 
 `def` is a keyword that tells Python that we're about to define a function. `sum` is the name we chose for this function. We can pick almost anything for the name. The main restrictions are: no spaces, no punctuation, no dashes, no special characters other than the underscore (`_`), and most depressing of all, no emoji. 
 
@@ -213,7 +214,7 @@ Oh, and then there's a colon (`:`). You'll always see a colon before any code th
 
 Line 5 is what we call *body* of the function. It's a pretty small body; it should really hit the gym more often. Notice the indent. It's four spaces here, but the number of spaces is arbitrary. Any amount will work, so long as you're consistent. But if you don't use four spaces, people will look at you funny. Four spaces is Just How We Do Things Around Here.
 
-The `return` keyword is how the function communicates its results back to the section of code that used it. In this case, we're returning the result of an addition operation. All the standard math operations are here:
+The `return` keyword is how the function communicates its results back to the section of code that used it. In this case, we're returning the result of an addition operation, but all the standard math operations are available to us:
 * add: `+`
 * subtract: `-`
 * divide: `/`
@@ -221,7 +222,7 @@ The `return` keyword is how the function communicates its results back to the se
 * power: `**`
 	* (instead of 4³ we would write `4**3`)
 
-Multiple operators can be used on one line, like `10 - 24 + 69 * 420 / 777`. Order of operations matters here, and [PEMDAS](https://www.cuemath.com/numbers/pemdas/) is observed.
+Multiple operators can be used on one line, like `10 - 24 + 69 * 420 / 777`. Order of operations matterherehere here, and [PEMDAS](https://www.cuemath.com/numbers/pemdas/) is observed.
 
 Although we only have one line in this function, there's no limit -- we could have a million lines if we wanted.
 

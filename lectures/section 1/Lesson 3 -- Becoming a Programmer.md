@@ -37,18 +37,18 @@ In addition to using programming concepts we won't touch on until the very end o
 
 That's the primary reason that you're starting with a text interface. But another significant reason is the simple fact that of all the software in the world, only the tiniest fraction of it involves communicating directly with a user, either graphically or by text. 
 
-You'll see this in your own programs that you write throughout the course. As they get larger and more complex, the percentage of code that pertains to output and input will shrink dramatically. 
+You'll see this in your own programs that you write throughout this course. As they get larger and more complex, the percentage of code that pertains to output and input will shrink dramatically. 
 
 Speaking of your own programs, I suppose we should get back to learning to code. I hope you enjoy digressions, because this course is *filled* with them.
 
-## Getting Back To It
+## Breaking it Down
 Now that we've observed the "Hello World" tradition, we can start poking at it. Even a single line can teach us a lot.
 
 If you recall from our whirlwind introduction in the last chapter, `print()` is an example of a function. A function is a reusable bit of code, but it doesn't have to be static and do the same thing each time we use (or *call*) it. A function can accept data in the form of function parameters, which are like "fill in the blank" spots where we provide the details when we call the function. 
 
-These parameters go inside the parentheses after the function name. In this case, the parameter we're using is the string `"Hello, World!"` Strings are how we represent text that we actually want to treat as data, instead of commands to the programming language, and we use quotation marks to make it a string. If we were to leave off the quotation marks and try to run `print(Hello, World!)`, Python would assume we were trying to call the `print()` function with two arguments, the variables `Hello` and `World`. It would try to look up the definition of these variables, fail, and your program would crash with a `NameError`. (And the exclamation mark would cause an entirely different issue.)
+These parameters go inside the parentheses after the function name. In this case, the parameter we're using is the string `"Hello, World!"` Strings are how we represent text that we actually want to treat as data, instead of commands to the programming language. We use quotation marks to mark it as a string. If we were to leave off the quotation marks and try to run `print(Hello, World!)`, Python would assume we were trying to call the `print()` function with two arguments, the variables `Hello` and `World`. It would try to look up the definition of these variables, fail, and your program would crash with a `NameError`. (And the exclamation mark would cause an entirely different issue.)
 
-There's a lot of information we can glean from poking at this like. For example, white space usually doesn't matter, except at the beginning of a line.
+There's a lot of information we can glean from poking at this line. For example, white space usually doesn't matter, except at the beginning of a line.
 
 ```python
 print    (   "Hello, World!"     ) # works
@@ -88,14 +88,46 @@ You can also escape quotation marks in the same way.
 ```python
 print("What kind of name is \"Crispin\", anyway?")
 # prints: What kind of name is "Crispin", anyway?
-
 ```
 
-## I'm "Very Able" To Teach You About Variables
-Like we saw in Lesson 2, variables are names that we pick to represent values. 
+## Your Turn
+
+1. With one use of the `print()` function, print out the first four lines of your favorite song, properly formatted, so each line of the song is on its own line. Try both ways of doing it.
+2. Print out the following, with quotation marks and the apostrophe included in the output:  `"Frankly, my dear, I don't give a damn." —Rhett Butler, Gone With the Wind`
+3. Print out this informational text: `On Microsoft windows, a user's home folder is located in the C:\Users\ directory by default.`
+
+# Data and Flow
+At its core, programming is all about getting data and then doing different things depending on what the data is.
+
+## Data
+"Data" can be anything we can conceive of. There are what we can consider "fundamental" types, like whole numbers, decimals, and strings like `"Hello, World!"`. But data can also be any kind of amalgamation of those, that can represent dates, times, colors, people, businesses, *whatever.* 
+
+Any way you can think of to categorize the world, you can construct code to represent. And *then* you can construct code to operate on this data and produce meaningful results.
+
+## Flow
+The second part of programming involves what we call *control flow*, where we run code only if certain conditions are met. Consider what happens if you buy alcohol in a store. An employee checks your ID, and approves the sale only if you are of age. A flowchart of that process would look like this:
+
+```mermaid
+graph TD
+	A[Look at Customer ID]
+	A --> B{Is Customer Of Age?}
+	B --> |yes| C[Proceed]
+	B --> |no| D[Deny Sale]
+```
+
+The customer ID is the *data* in this example. Then the employee "executes" an action conditionally, based on the date of birth shown on the ID. Or, to rephrase it awkwardly just so I can reuse the previously introduced phrase, the condition "is customer of age" *controls the flow* of the flowchart. 
+
+This is a relevant example for a coding tutorial, because many shops and bars no longer trust their employees to read the date correctly. Instead, the employee scans the barcode on the ID and does what the computer tells them to do.
+
+When the employee scans your ID, a program is being run. This program receives your ID data as input, does some calculations, and outputs a different message depending on the result of those calculations. 
+
+## Your Turn
+Sketch out a simple conditional flowchart of something you do every day. Identify the data and condition. For example, the choice of whether to take a shower is dictated by how bad you smell. Your scent is the data, while the condition is "is this scent too rank". 
+
+# Variables: How We Store Data 
+Like we saw in Lesson 2, variables are names we can assign to pieces of data. For example: 
 
 ```python
-# some examples
 favorite_number = 69
 日本の首相 = "Fumio Kishida"
 l337_speak_is_great = True
@@ -109,12 +141,12 @@ Almost any name works. The restrictions are:
 * cannot have special characters other than the underscore (`_`)
 	* this includes emojis 😔
 * cannot be a Python keyword, like `True`, `def` or `import`
-	* see the documentation for a [complete list](https://docs.python.org/3/reference/lexical_analysis.html#keywords)
+	* see the documentation for a [complete list](https://docs.python.org/3/reference/lexical_analysis.html#keywords) of keywords
 
 As shown above, non-Latin alphabets *are* allowed.
 
 ## A Quick Break To Talk About Our Lord and Savior, the REPL
-As you've been reading the last section and trying out all these different 1-line examples, you may have noticed that it's tedious to make a change, drag your mouse cursor to the run button, and click it. If you noticed the tooltip that appears when you hover the cursor over the button, you'll be hitting F8 instead of clicking -- easier, to be sure, but what if there was even a simpler way?
+As you were reading the Hello World section and trying out all these different 1-line examples, you may have noticed that it's tedious to make a change, drag your mouse cursor to the run button, and click it. If you saw the tooltip that appears when you hover your mouse cursor over the button, you'll be hitting F8 instead of clicking -- easier, to be sure, but what if there was even a simpler way?
 
 What if instead of a text editor, we could type a line of code, hit enter, and have it *immediately* executed and see the result? This concept is called the REPL -- the Read, Evaluate, and Print Loop. On online-python.com, you can access the REPL by clicking the button that looks like `>_` in a column to the left of the console (the area where output appears). 
 
@@ -126,10 +158,10 @@ If you press the up arrow on your keyboard, it brings back the last thing you ty
 
 REPLs are a fantastic tool in every programming language that supports them, and they're not just for beginners. In my everyday programming, I'm constantly using the REPL to quickly test ideas and validate my approach.
 
-However, not all REPLs are built the same. online-python.com provides access to the basic, built-in python REPL. It's great, but you'll notice there's no syntax highlighting or auto-completion. For that, slide on over to [this website](https://www.pythonanywhere.com/try-ipython/) that provides access to the `iPython` terminal, which does the same thing, but makes it prettier and more user-friendly.
+However, not all REPLs are built the same. online-python.com provides access to the basic, built-in python REPL. It's great, but you'll notice there's no syntax highlighting or auto-completion. For that, slide on over to [this website](https://www.pythonanywhere.com/try-ipython/) that provides access to the `IPython` terminal, which does the same thing, but makes it prettier and more user-friendly.
 
 ## Back To Variables
-You can use variables in any place that would accept whatever thing the variable references.  Quick side note: now that I'm introduced the REPL, I usually won't be using `print()` in any short examples from now on. So remember that if you want to run these examples in the text editor, you'll need to use `print()` whenever you actually want to see output.
+You can use variables in any place that would accept whatever data the variable references.  Quick side note: now that I've introduced the REPL, I usually won't be using `print()` in any short examples from now on. So remember that if you want to run these examples in the text editor, you'll need to use `print()` whenever you actually want to see output.
 
 ```python
 a = 10
@@ -163,10 +195,8 @@ b # 5
 
 Note that setting `b = a` does not tie `b` to the value of `a` forever. It simply defines `b` to be whatever `a` was at that moment.
 
-## Chapter 2 Was Way More Fun
-Okay, you're right. This is pretty abstract. Let's introduce our control-flow statement: `if`. 
-
-Programs can be visualized as flowcharts. Take the following flowchart, for example, that help you wear the right clothes based on the weather:
+# Going With The Flow
+As shown previously with the ID example, programs can be visualized as flowcharts. Take the following flowchart, for example, that helps you wear the right clothes based on the weather:
 ```mermaid
 graph TD
     A[check the temperature]
@@ -175,7 +205,7 @@ graph TD
     C -->|no| E[wear pants]
 ```
 
-We're first getting our data, the temperature. Then we're comparing our data to a specific value. Depending on the result of this comparison, we either wear pants or a skirt. This is an example of *conditional logic*, where we choose between more than one action based upon some condition. The condition in this example is "the temperature is above 60 degrees". Or to express it more tersely using mathematical notation, we could say `temperature > 70`. That `>` is the *greater-than* symbol. As it happens, that's valid Python!
+We're first getting our data, the temperature. Then we're comparing our data to a specific value. Depending on the result of this comparison, we either wear pants OR a skirt, but never both. This is an example of *conditional logic*, where we choose between more than one action based upon some condition. The condition in this example is "the temperature is above 60 degrees". Or to express it more tersely using mathematical notation, we could say `temperature > 60`. That `>` is the *greater-than* symbol. As it happens, that's valid Python!
 
 ```python
 temperature = 90
@@ -205,7 +235,7 @@ print("But always print this")
 
 `else` can optionally be used after an `if` to serve as an alternative. The code inside the `else` is only executed if the condition from the `if` statement (`temperature > 60` in this case) evaluates to `False`.
 
-Now, you may look at that first example and wonder how the else clause could *ever* get executed if we set `temperature` to 90. You're right, it couldn't. This is but a toy example; in the real world, the reason you're writing an `if` statement is because your data *does* vary. Perhaps it's being inputted by a user:
+Now, you may look at that first example and wonder how the else clause could *ever* get executed if we set `temperature` to 90. You're right, it couldn't. This is but a toy example; in the real world, the reason you're writing an `if` statement is because your data *does* vary (which is why we call them "variables"). Perhaps it's being inputted by a user:
 
 ```python
 temperature = int(input("Enter the temperature: "))
@@ -216,8 +246,10 @@ else:
 	print("Pants are back on the menu, boys!")
 ```
 
+
+
 ## Beyond the Binary
-But what it we want more than a binary yes/no choice? To continue with the above example, what if we consider multiple temperature ranges to decide our daily attire?
+But what if we want more than a binary yes/no choice? To continue with the above example, what if we consider multiple temperature ranges to decide our daily attire?
 
 ```mermaid
 graph TD
@@ -242,7 +274,7 @@ elif temperature < 60:
 
 You'll notice the use of `>=` and `<=`, which as you might expect, represent "greater than or equal to" and "less than or equal to". When using comparisons, it's important to keep in mind whether the comparison is *inclusive* or *exclusive*. It's easy to introduce bugs -- in the above program, imagine only using `<` and `>`. Then if `temperature` was set to exactly `110`, `80`, or `60`, none of the conditions would be met.
 
-You'll also note the use of *chained* comparisons, like `80 <= temperature < 110`. Another way of writing this is `80 <= temperature and temperature < 110`. I haven't formally introduced them yet, so this is a sneak peak: you can use `and` and `or` to chain together multiple conditions.
+You'll also note the use of *chained* comparisons, like `80 <= temperature < 110`. Another way of writing this is `80 <= temperature and temperature < 110`. I haven't formally introduced them yet, so this is a sneak peek: you can use `and` and `or` to chain together multiple conditions.
 
 When using multiple if statements, we use `elif`, which is short for "else if". These accept a condition, and are identical in behavior to `if`.
 
@@ -261,7 +293,7 @@ if temperature < 60:
 	print("Break out the pantaloons")
 ```
 
-You can't, don't worry -- that was a trick question. In this example, these conditions we're checking for are all mutually exclusive. There is no temperature that fits into more than one range. But let's say we wrote it slightly different....
+If you can't, don't worry -- that was a trick question. In this example, these conditions we're checking for are all mutually exclusive. There is no temperature that fits into more than one range. But let's say we wrote it slightly different....
 
 ```python
 temperature = int(input("Enter the temperature: "))
@@ -276,7 +308,7 @@ if temperature < 60:
 	print("Break out the pantaloons")
 ```
 
-Now instead of confining `temperature` to a *range*, we're just making a single comparison. Now a temperature of 120, for example, fits all three of those first conditions. 120 is greater than 110, and it's greater than 80, and it's greater than 60. So that program would print out:
+Now instead of confining `temperature` to a *range*, we're just making a single comparison. A temperature of 120, for example, fits all three of those first conditions. 120 is greater than 110, and it's greater than 80, and it's greater than 60. So that program would print out:
 
 ```
 Stay home, clothes optional
@@ -295,8 +327,32 @@ This also affects `else` statements. They only apply to the preceding `if/elif` 
 
 A person with car troubles is going to read that, top to bottom, and stop on the first one that applies. For example, they know their battery isn't dead, so they won't try getting a jump. They look at their tires and realize that they're flat. They follow the instructions and inflate their tires. Then they crumple up this checklist and toss it in the trash, because they're done, their problem was solved. They didn't continue on to the third item, and they certainly didn't continue on the catch-all "none of the above" at the bottom.
 
-## Equality is Pretty Great
-The examples so far have all used comparisons, like `<` and `>=`. This is fantastic and all, but what if you wanted to, say, check that a value was *exactly* 69? You could write `68 < value < 70` which *works*, but that's silly. Let's use the equality operator!
+## What *Is* a Condition, Exactly?
+Thus far, I've only shown conditions that use the comparison operators, because they're easy to understand. But almost any code can serve as a condition -- specifically, any *expression*. And expression is code that can be fully evaluated and returns a single value. Keywords like `if` and `else`, or variable assignment like `x = 10`, are not examples of expressions. 
+
+The REPL is a good way to experiment with what is and isn't an expression. If you can type a line of code in the REPL and get back a single answer, it's an expression. You might have already noticed that when you assign a variable in the REPL, there's no output. That's because the assignment itself isn't an expression. However, the code on the right-hand side of the equals sign *is* an expression. 
+
+There are lots of operators that can be used in an expression, and they fall into two categories: *arithmetic* operators, and *comparison* operators.
+
+Arithmetic operators were mentioned in the previous lesson, and include `+`, `-`, `*`, and `/`. These are for manipulating data in some way, and the answer is usually the same type of data. For example, `5 + 10` uses the addition operator (`+`) on two integers, and returns (or *evaluates to*) an integer (`15`).
+
+Comparison operators include the previously seen `>`, `<`, `>=`, and `<=`, as well as `not`, `is`, `in`, `==`, and `!=`.  What separates these from the arithmetic operators is that *these* operators will return a `True` or `False` value. `5 > 10` evaluates to the *boolean* value of `True`. We get the name from [Boolean algebra](https://en.wikipedia.org/wiki/Boolean_algebra), but all you need to know is that a boolean (or bool for short) is a value that is either `True` or `False`.  
+
+Booleans are important for conditional logic like an `if` statement. We're not looking for a complicated answer. We just need to know: should I do this thing? Yes or no?
+
+However, the conditional expression doesn't *have* to evaluate to a boolean. In cases where it doesn't, the concepts of *truthiness* and *falsiness* come into play. All data types For example, an empty string is *falsy*, and a non-empty string is *truthy*. 
+
+```python
+if "":
+	print("This will never be printed")
+if "anything doesn't matter":
+	print("This will always be printed")
+```
+
+Similarly, for numbers, zero is `False` and non-zero is `True`. You're probably wondering when this would ever come in handy. That's a good question, which we'll come back to in a later lesson. For now, just be generally aware of this idea, so you're not caught off-guard. If you're still curious, try using the `bool()` function -- it will convert whatever parameter you give it to its boolean value. `bool(10)`, for example, will return `True`.
+
+### Equality is Pretty Great
+`==` is the *equality* operator, and you're going to use it a lot. It will return `True` if the data on both sides of the operator is identical. For example, if we want to check that a number is exactly 69:
 
 ```python
 x = int(input("Enter a number"))
@@ -332,6 +388,7 @@ In [6]: "1" != 1
 Out[6]: True
 ```
 
+
 ## Code Can Go Anywhere
 I want to hammer this point home, so there is no misunderstanding: there is no limit to what you can put inside an `if`, or -- more generally -- within an indented block of code. For example, we could take our first example and copy and paste the whole thing back into its `if`:
 
@@ -352,17 +409,17 @@ else:
 
 That doesn't make any sense for this example, but we can do it! An indented block of code is just code. Anything that could be written unindented, can be written indented.
 
-## Recap
+# Recap
 You learned a number of important concepts today. Here are the highlights:
 
 * Whitespace in python usually doesn't matter, except at the beginning of a line
 * A string is a text data
 	* if you want a line break, use `\n` or triple quotes
-	* if you want backslashes, use two (`\\`) or make it a raw string be prepending an `r` (`r"this is a raws string"`)
+	* if you want backslashes, use two (`\\`) or make it a raw string be prepending an `r` (`r"this is a raw string"`)
 * variables are names that reference data
 	* we assign data to a variable by using the equals sign (`date = 1984`)
 	* we can pick almost any name we want, so long as there aren't any spaces or special characters
-	* we can use a variable any place we could use the raw data, and vice versa
+	* we can use a variable in any place we could use the raw data, and vice versa
 * you can use the REPL to immediately evaluate a single expression or line of code
 * `if` statements can be used to conditionally control the flow of program execution. 
 	* the conditional expression comes immediately after the keyword, and evaluates to either true or false
@@ -370,12 +427,12 @@ You learned a number of important concepts today. Here are the highlights:
 		* `elif`s need a condition, just like `if`s
 	* to optionally provide a fallback alternative if the conditions(s) doesn't apply, use the `else` keyword
 		* `else` can appear after a single `if` or a chain of `if`/`elif`s
-	`if`/`elif`/`else` end the line with a colon
+	* the line containing the `if`/`elif`/`else` must end with a colon (the character with two dots: `:` -- not to be confused with a semicolon: `;`)
 	* all code that you want to be executed conditionally must be under that control-flow statement and indented
 
-## Assignment, And One Final Lesson
+# Assignment
 
-You now have to tools needed to solve quite a wide range of problems! So let's solve this problem:
+You now have the tools needed to solve quite a wide range of problems. So let's solve one!
 
 You are providing a service that matches customers with items in their price range. The user will enter their budget, and you'll suggest two items that are withing that range. Then the user will type the name of the item to purchase it. The actual products or services you provide are up to you, as is the exact output -- stretch your imagination. 
 
@@ -388,10 +445,19 @@ You can buy a llama or a goat with that money.
 >>> goat
 Here's your goat! Thanks for visiting the zoo!
 ```
+And with a larger budget:
+```
+Welcome to the Zoo! What's your budget?
+>>> 69420
+Dang, you're loaded! Do you want an elephant or a tiger? 
+>>> elephant
+Here's your elephant! Thanks for visiting the zoo!
+```
+
 
 Take it slow and build it one step at time. Don't rush, and don't try to get fancy. The initial 1.0 version of your program should offer two price tiers and two items at each price tier. 
 
-### Hints
+## Hints
 Here's a hint, since I only briefly explained it in the previous lesson: when getting the budget, you need to use `int()`:
 
 ```python
@@ -421,7 +487,7 @@ In [11]: type(3)
 Out[11]: int
 ```
 
-### Extra Credit (Not Actually Optional, Do It Or I Fail You)
+## Extra Credit (Not Actually Optional, Do It Or I Fail You)
 Once you have your 1.0 version working, make it better.
 
 * add rejection text if the user types something other than the item name
@@ -430,7 +496,14 @@ Once you have your 1.0 version working, make it better.
 * don't crash if the user enters something that's not a number
 	* hint: if you scroll up a few lines, you'll see mention of the `type()` function. Can you use a function inside a conditional? Hrm... only one way to find out!
 
-## Where To Go From Here
+# Where To Go From Here
 Take a break! Then work on the assignment, and don't try to do it all in one sitting. As your first full program, it's going to be slow-going. Look at the examples in this lesson and the previous ones for help -- the assignment requires nothing that hasn't been covered.
 
 Once you have a working program and have at least attempted the extra credit, continue on to Lesson 4, where we'll start by dissecting this assignment, including the extra credit. So don't look at Lesson 4 too early, you don't want to spoil your fun!
+
+# Further Reading/References
+* not done yet
+* maybe link some decent beginner tutorials for the same subjects
+* docs pages for these topics
+	* https://docs.python.org/3/reference/expressions.html#operator-precedence
+	* https://docs.python.org/3/reference/expressions.html
