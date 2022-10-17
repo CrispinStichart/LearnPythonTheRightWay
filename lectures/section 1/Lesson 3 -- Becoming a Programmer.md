@@ -493,7 +493,7 @@ Once you have your 1.0 version working, make it better.
 * add rejection text if the user types something other than the item name
 * add rejection text if the user types in a negative budget
 * give the user something free if their budget is exactly zero.
-* How few `print()` calls can you get away with? Two? Maybe even one?
+* If you're printing almost exactly the same thing in different places, like in the zoo example above, can you condense the multiple `print()` into a few number? (This is is hard, because although I've briefly mentioned it, I haven't directly addressed the tools you'll need to solve this.) 
 
 # Where To Go From Here
 Take a break! Then work on the assignment, and don't try to do it all in one sitting. As your first full program, it's going to be slow-going. Look at the examples in this lesson and the previous ones for help -- the assignment requires nothing that hasn't been covered.
