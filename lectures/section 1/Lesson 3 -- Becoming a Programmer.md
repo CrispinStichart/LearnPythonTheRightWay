@@ -441,7 +441,7 @@ Here's an example session. Input from the user is preceded by `>>>` to separate 
 ```
 Welcome to the Zoo! What's your budget?
 >>> 500
-You can buy a llama or a goat with that money.
+You can buy a llama or a goat with that amount.
 >>> goat
 Here's your goat! Thanks for visiting the zoo!
 ```
@@ -493,8 +493,7 @@ Once you have your 1.0 version working, make it better.
 * add rejection text if the user types something other than the item name
 * add rejection text if the user types in a negative budget
 * give the user something free if their budget is exactly zero.
-* don't crash if the user enters something that's not a number
-	* hint: if you scroll up a few lines, you'll see mention of the `type()` function. Can you use a function inside a conditional? Hrm... only one way to find out!
+* How few `print()` calls can you get away with? Two? Maybe even one?
 
 # Where To Go From Here
 Take a break! Then work on the assignment, and don't try to do it all in one sitting. As your first full program, it's going to be slow-going. Look at the examples in this lesson and the previous ones for help -- the assignment requires nothing that hasn't been covered.
