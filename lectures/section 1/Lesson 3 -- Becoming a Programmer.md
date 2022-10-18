@@ -467,7 +467,7 @@ budget = input("What's your budget?")
 budget = int(budget)
 ```
 
-A string containing a number, like `"500"`, is not the same as the number `500`. When playing around in the REPL, you'll notice that when an expression evaluates to a string, it will have the quotation marks in the output. Integers will not.
+`input()` returns a string, and a string containing a number, like `"500"`, is not the same as the number `500`. When playing around in the REPL, you'll notice that when an expression evaluates to a string, it will have the quotation marks in the output. Integers will not.
 
 ```python  
 In [8]: "1" + "1"
@@ -480,7 +480,7 @@ Out[9]: 3
 You can use the function `type()` to make this explicit.
 
 ```python
-In [10]: type("test post")
+In [10]: type("3")
 Out[10]: str
 
 In [11]: type(3)
